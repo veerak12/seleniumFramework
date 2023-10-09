@@ -1,0 +1,33 @@
+-----create a python environment
+python -m venv ecomApp
+
+----------activate the virtual environment
+ecomApp\Scripts\activate
+
+----- run the pytest 
+pytest -v -s testCases\test_login.py
+
+---to run the tests on desired browser
+pytest -v -s testCases\test_login.py --brower edge
+
+#for parallel test we used the "pytest-xdist":
+--to run the tests parallelly on browsers
+
+pytest -v -s -n=2 testCases\test_login.py --brower chrome  #max n=3 
+
+#here we have 2 test cases these two test cases run parallel on the chrome browser
+-- to run and get the html reports
+pytest -v -s -n=2 --html=Reports\report.html testCases\test_login.py --brower chrome
+
+pytest -v -s --html=Reports\report.html testCases\test_add_Customer.py --brower chrome
+
+
+#generate html reports
+#tests will do either sanity or regression
+pytest -s -v -m "sanity or regression" --html=./Reports/sanityReport.html testCases/ --browser chrome
+
+#tests will do both sanity and regression
+pytest -s -v -m "sanity and regression" --html=./Reports/sanityReport.html testCases/ --browser chrome
+
+#check only sanity test cases
+pytest -s -v -m "sanity or regression" --html=./Reports/sanityReport.html testCases/ --browser chrome
