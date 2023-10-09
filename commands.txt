@@ -30,4 +30,4 @@ pytest -s -v -m "sanity or regression" --html=./Reports/sanityReport.html testCa
 pytest -s -v -m "sanity and regression" --html=./Reports/sanityReport.html testCases/ --browser chrome
 
 #check only sanity test cases
-pytest -s -v -m "sanity or regression" --html=./Reports/sanityReport.html testCases/ --browser chrome
+pytest -s -v -m "sanity" --html=./Reports/sanityReport.html testCases/ --browser chrome
